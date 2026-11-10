@@ -1,0 +1,85 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeoLab Academy</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#eef5f2;color:#173b37}
+header{background:linear-gradient(135deg,#064e48,#138b80);color:white;text-align:center;padding:48px 18px}
+h1{font-size:36px;margin:10px 0}
+header p{line-height:1.6}
+main{max-width:1050px;margin:auto;padding:25px 16px}
+h2{text-align:center}
+.classes,.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:24px 0}
+button{padding:15px;border:0;border-radius:14px;background:#087e73;color:white;font-size:17px;cursor:pointer}
+button.active{background:#e6aa37;color:#173b37}
+.card{background:white;padding:22px;border-radius:18px;box-shadow:0 4px 18px #0001;text-align:center}
+.card .emoji{font-size:40px}
+.card h3{margin:12px 0}
+.card p{font-size:14px;line-height:1.5;color:#52645f}
+.card button{width:100%;font-size:14px}
+footer{text-align:center;padding:25px;background:#073f3b;color:white;margin-top:30px}
+#message{text-align:center;font-weight:bold;min-height:24px}
+</style>
+</head>
+<body>
+<header>
+<div style="font-size:50px">🌍</div>
+<h1>GeoLab Academy</h1>
+<p>География становится приключением!</p>
+<p>Авторская образовательная платформа<br>
+Ахундова Рена Вагифовна<br>
+Школа №27, г. Сумгаит, Азербайджан</p>
+</header>
+<main>
+<h2>Выберите свой класс</h2>
+<div class="classes" id="classes"></div>
+<p id="message">Выберите класс для начала работы</p>
+<h2>Наши географические лаборатории</h2>
+<div class="cards" id="cards"></div>
+</main>
+<footer>© GeoLab Academy · 2026<br>
+Исследуй. Открывай. Побеждай.</footer>
+<script>
+let grade=6;
+const modules=[
+["🗺️","Интерактивный атлас","Исследуем карты и географические объекты."],
+["🔐","Тайны острова","Квест-комната с пятью географическими замками."],
+["🌊","Климат и Каспий","Эксперименты с климатом и уровнем моря."],
+["🏆","Географическая битва","Соревнование двух команд."],
+["🎓","Паспорт географа","Достижения, уровни и награды."],
+["📚","Библиотека уроков","Материалы и задания для каждого класса."]
+];
+function render(){
+document.getElementById("classes").innerHTML=
+[6,7,8,9,10,11].map(n=>
+`<button class="${grade===n?'active':''}" onclick="choose(${n})">${n} класс</button>`
+).join("");
+document.getElementById("cards").innerHTML=
+modules.map((m,i)=>`
+<div class="card">
+<div class="emoji">${m[0]}</div>
+<h3>${m[1]}</h3>
+<p>${m[2]}</p>
+<button onclick="openModule(${i})">Открыть раздел</button>
+</div>`).join("");
+}
+function choose(n){
+grade=n;
+document.getElementById("message").textContent=
+"Выбран "+n+" класс";
+render();
+}
+function openModule(i){
+alert(modules[i][1]+
+"\nКласс: "+grade+
+"\nРаздел готов к подключению приложения.");
+}
+render();
+</script>
+</body>
+</html>
