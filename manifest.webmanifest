@@ -1,0 +1,21 @@
+{
+  "name": "GeoLab Academy",
+  "short_name": "GeoLab",
+  "start_url": "/geolab-academy/",
+  "scope": "/geolab-academy/",
+  "display": "standalone",
+  "background_color": "#edf6f3",
+  "theme_color": "#087f73",
+  "icons": [
+    {
+      "src": "geolab-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "geolab-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
